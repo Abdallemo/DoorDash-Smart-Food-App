@@ -1,5 +1,6 @@
 import 'package:dashdoor/components/my_button.dart';
 import 'package:dashdoor/components/my_text_field.dart';
+import 'package:dashdoor/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,8 +14,15 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailcontroller = TextEditingController();
-
   final TextEditingController passwordcontroller = TextEditingController();
+
+  void login()
+  {
+
+
+    //** goin to the home page after Auth
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage(),));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 30),
 
             //sign in button
-            MyButton(onTap: () {}, text: "Sign in"),
+            MyButton(text: "Sign in", onTap: login),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

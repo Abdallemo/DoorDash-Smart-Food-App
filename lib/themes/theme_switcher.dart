@@ -10,18 +10,18 @@ class ThemeSwitcher with ChangeNotifier
   bool get isDarkMode => _themeData == darkMode;
   set themeData(ThemeData themeData)
   {
-    _themeData = this.themeData;
+    _themeData = themeData;
     notifyListeners();
   }
 
-  void toggle()
+  void toggleTheme()
   {
     if(_themeData==lightMode)
     {
-      _themeData = darkMode;
+      themeData = darkMode;
     }else
     {
-      _themeData = lightMode;
+      themeData = lightMode;
     }
   }
 }
