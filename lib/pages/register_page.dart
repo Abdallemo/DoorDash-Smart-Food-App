@@ -2,19 +2,22 @@ import 'package:dashdoor/components/my_button.dart';
 import 'package:dashdoor/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  void Function()? onTap;
 
-  LoginPage({super.key,required this.onTap});
+class RegisterPage extends StatefulWidget {
+  final Function()? onTap;
+
+  const RegisterPage({super.key,required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
+
   final TextEditingController emailcontroller = TextEditingController();
 
   final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController confirmpasswordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(
                     fontSize: 25,
                     color: Theme.of(context).colorScheme.inversePrimary),
-                "Door Dash Fast Delivery"),
+                "Let Setup You in A minute"),
             const SizedBox(
               height: 25,
             ),
@@ -54,15 +57,22 @@ class _LoginPageState extends State<LoginPage> {
                 controller: passwordcontroller,
                 hintText: "Password",
                 obscureText: true),
+
+            const SizedBox(height: 10),
+            //Password Text
+            MyTextField(
+                controller: confirmpasswordcontroller,
+                hintText: "Confirm Password",
+                obscureText: true),
             const SizedBox(height: 30),
 
             //sign in button
-            MyButton(onTap: () {}, text: "Sign in"),
+            MyButton(onTap: () {}, text: "Sign Up"),
             const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Not a member?",
+                Text("Already have an account?",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.inversePrimary)),
                 const SizedBox(
@@ -70,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 GestureDetector(
                   onTap: widget.onTap,
-                  child: Text("Resister now",
+                  child: Text("Lgin now",
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.inversePrimary,fontWeight: FontWeight.bold)),
                 )
@@ -81,5 +91,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-  }
+}
 }
