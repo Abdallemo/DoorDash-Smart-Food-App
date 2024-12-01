@@ -1,5 +1,6 @@
 import 'package:dashdoor/Auth/login_or_regsiter.dart';
 import 'package:dashdoor/pages/login_page.dart';
+import 'package:dashdoor/pages/my_address_api.dart';
 import 'package:dashdoor/pages/register_page.dart';
 import 'package:dashdoor/themes/theme_switcher.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegsiter(),
+      home:const LoginOrRegsiter(),
       theme:  Provider.of<ThemeSwitcher>(context).themeData,
     );
   }
