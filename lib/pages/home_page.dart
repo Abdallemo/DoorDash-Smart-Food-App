@@ -1,19 +1,41 @@
+import 'package:dashdoor/components/My_tab_bar.dart';
 import 'package:dashdoor/components/my_drawer.dart';
-import 'package:dashdoor/pages/my_current_location.dart';
-import 'package:dashdoor/pages/my_sliver_app_bar.dart';
+import 'package:dashdoor/components/my_current_location.dart';
+import 'package:dashdoor/components/my_description_box.dart';
+import 'package:dashdoor/components/my_sliver_app_bar.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Theme.of(context).colorScheme.background,
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           MySliverAppBar(
+              title: MyTabBar(tabController: _tabController),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -24,14 +46,28 @@ class HomePage extends StatelessWidget {
                   ),
 
                   //location
-                  MyCurrentLocation(),
+                  const MyCurrentLocation(),
                   //description box
+                  const MyDescriptionBox()
                 ],
-              ),
-              title: Text("title"))
+              ))
         ],
-        body: Container(
-          color: Colors.amber.shade600,
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("first Tab Items")
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("second tab Items")
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("Third Tab Items")
+            )
+          ],
         ),
       ),
     );
