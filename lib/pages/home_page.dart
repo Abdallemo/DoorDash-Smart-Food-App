@@ -1,9 +1,13 @@
+import 'package:dashdoor/Models/food.dart';
+import 'package:dashdoor/Models/resturent.dart';
 import 'package:dashdoor/components/My_tab_bar.dart';
 import 'package:dashdoor/components/my_drawer.dart';
 import 'package:dashdoor/components/my_current_location.dart';
 import 'package:dashdoor/components/my_description_box.dart';
+import 'package:dashdoor/components/my_food_tile.dart';
 import 'package:dashdoor/components/my_sliver_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,7 +22,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: FoodCatagory.values.length, vsync: this);
   }
 
   @override
@@ -26,6 +30,28 @@ class _HomePageState extends State<HomePage>
     _tabController.dispose();
     super.dispose();
   }
+
+  List<Food> _filterMenuByCatagory (FoodCatagory catagory , List<Food> fullMenu){
+    return fullMenu.where((food)=> food.catagory == catagory).toList();
+  }
+
+  //!
+  List<Widget> getFoodInThisCatagory(List<Food> fullmenu){
+    return FoodCatagory.values.map((catagory){
+      List<Food> catagoryMenu = _filterMenuByCatagory(catagory, fullmenu);
+      return ListView.builder(
+        itemCount: catagoryMenu.length,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.only(top: 0),
+        itemBuilder: (context,index){
+          final food = catagoryMenu[index];
+          return MyFoodTile(food: food, onTap: (){});
+        },
+      );
+    }).toList();
+  }
+
+  //!
 
   @override
   Widget build(BuildContext context) {
@@ -52,24 +78,11 @@ class _HomePageState extends State<HomePage>
                 ],
               ))
         ],
-        body: TabBarView(
+        body: Consumer<Resturent>(builder: (context,resturent,child)=>TabBarView(
           controller: _tabController,
-          children: [
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("first Tab Items")
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("second tab Items")
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("Third Tab Items")
-            )
-          ],
+          children: getFoodInThisCatagory(resturent.fullmenu)
         ),
-      ),
-    );
+      )
+    ));
   }
 }

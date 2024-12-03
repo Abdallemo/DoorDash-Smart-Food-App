@@ -1,3 +1,4 @@
+import 'package:dashdoor/Models/food.dart';
 import 'package:flutter/material.dart';
 
 class MyTabBar extends StatelessWidget {
@@ -5,15 +6,24 @@ class MyTabBar extends StatelessWidget {
 
   const MyTabBar({super.key,required this.tabController});
 
+  List<Tab> _buildCatagoryTabs()
+  {
+    return FoodCatagory.values.map((catagory){
+      return Tab(
+        text: catagory.toString().split('.').last,
+      );
+    }).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: TabBar(controller: tabController,tabs: const [
-        Tab(icon: Icon(Icons.home),),
-        Tab(icon: Icon(Icons.settings)),
-        Tab(icon: Icon(Icons.person)),
-      ], ),
+      child: TabBar(controller: tabController,
+      tabs: _buildCatagoryTabs(),
+      isScrollable: true,
+
+      )
+      
     );
   }
 }

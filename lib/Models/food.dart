@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 
 class Food {
   final String name;
   final String description;
   final String imagePath;
   final double price;
-  final FoodCataory cataory;
+  final FoodCatagory catagory;
   List<Addon> availableAddons;
 
   Food({
@@ -13,25 +12,23 @@ class Food {
     required this.description,
     required this.imagePath,
     required this.price,
-    required this.cataory,
+    required this.catagory,
     required this.availableAddons
   }
   );
 
 
 }
-enum FoodCataory
+enum FoodCatagory
 {
   local_Delights,
   western_Cuisine,
   chinese_Cuisine,
   indian_Cuisine,
-  malay_Cuisine,
+  japanese_Cuisine,
   fast_Food,
-  healthy_Options,
-  snacks_Street_Food,
-  desserts,
-  beverages
+  thia_Cuisine,
+  desserts
 }
 
 class Addon{
