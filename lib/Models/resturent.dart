@@ -267,7 +267,7 @@ class Resturent extends ChangeNotifier{
         name: 'Ice Cream',
         description:
             "Creamy and delicious ice cream available in a variety of flavors, perfect for a sweet treat.",
-        imagePath: "lib/images/Desserts/strawberry_ice_cream_.jpgg",
+        imagePath: "lib/images/Desserts/ice_cream.jpg",
         price: 8,
         catagory: FoodCatagory.desserts,
         availableAddons: [Addon(name: "Extra Toppings", price: 2),Addon(name: "Chocolate Sauce", price: 2),Addon(name: "Waffle Cone", price: 3)]),
