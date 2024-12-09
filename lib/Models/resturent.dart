@@ -1,12 +1,13 @@
+import 'package:collection/collection.dart';
+import 'package:dashdoor/Models/cart_item.dart';
 import 'package:dashdoor/Models/food.dart';
 import 'package:flutter/material.dart';
 
-class Resturent extends ChangeNotifier{
+class Resturent extends ChangeNotifier {
   final List<Food> _fullmenu = [
     //1. local dishes
 
-
-      //Nasi Lemak
+    //Nasi Lemak
     Food(
         name: 'Nasi Lemak',
         description:
@@ -14,8 +15,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Local/NasiLemak.jpg",
         price: 7,
         catagory: FoodCatagory.local_Delights,
-        availableAddons: [Addon(name: "cucumber", price: 0.1),Addon(name: "Extra Rice", price: 1),Addon(name: "Extra Egg", price: 0.3)]),   
-      //Satay
+        availableAddons: [
+          Addon(name: "cucumber", price: 0.1),
+          Addon(name: "Extra Rice", price: 1),
+          Addon(name: "Extra Egg", price: 0.3)
+        ]),
+    //Satay
     Food(
         name: 'Satay',
         description:
@@ -23,8 +28,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Local/SatayKajang1.jpg",
         price: 8,
         catagory: FoodCatagory.local_Delights,
-        availableAddons: [Addon(name: "with fish and Chicken", price: 3),Addon(name: "Extra Stay", price: 1),Addon(name: "with fish", price: 2)]),
-      //Laksa
+        availableAddons: [
+          Addon(name: "with fish and Chicken", price: 3),
+          Addon(name: "Extra Stay", price: 1),
+          Addon(name: "with fish", price: 2)
+        ]),
+    //Laksa
     Food(
         name: 'Laksa',
         description:
@@ -32,8 +41,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Local/laksa1.jpg",
         price: 12,
         catagory: FoodCatagory.local_Delights,
-        availableAddons: [Addon(name: "maggi", price: 2),Addon(name: "Extra Laska", price: 1),Addon(name: "sliced Egg", price: 0.6)]),
-      //Roti Canai
+        availableAddons: [
+          Addon(name: "maggi", price: 2),
+          Addon(name: "Extra Laska", price: 1),
+          Addon(name: "sliced Egg", price: 0.6)
+        ]),
+    //Roti Canai
     Food(
         name: 'Roti Canai',
         description:
@@ -41,8 +54,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Local/roti_canai.jpg",
         price: 3,
         catagory: FoodCatagory.local_Delights,
-        availableAddons: [Addon(name: "extra 2", price: 3),Addon(name: "Extra 4", price: 5),Addon(name: "Susu", price: 0.3)]),
-      //Mee Goreng
+        availableAddons: [
+          Addon(name: "extra 2", price: 3),
+          Addon(name: "Extra 4", price: 5),
+          Addon(name: "Susu", price: 0.3)
+        ]),
+    //Mee Goreng
     Food(
         name: 'Mee Goreng',
         description:
@@ -50,8 +67,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Local/Mee_Goreng.jpg",
         price: 7,
         catagory: FoodCatagory.local_Delights,
-        availableAddons: [Addon(name: "chicken", price: 1),Addon(name: "shrimp", price: 1.2),Addon(name: "tofu", price: 1.3)]),
-      //Nasi Ayam
+        availableAddons: [
+          Addon(name: "chicken", price: 1),
+          Addon(name: "shrimp", price: 1.2),
+          Addon(name: "tofu", price: 1.3)
+        ]),
+    //Nasi Ayam
     Food(
         name: 'Nasi Ayam',
         description:
@@ -59,11 +80,14 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Local/Nasi_Ayam.png",
         price: 7,
         catagory: FoodCatagory.local_Delights,
-        availableAddons: [Addon(name: "mayunize", price: 0.1),Addon(name: "Extra Rice", price: 1),Addon(name: "extra Egg", price: 0.3)]),
-
+        availableAddons: [
+          Addon(name: "mayunize", price: 0.1),
+          Addon(name: "Extra Rice", price: 1),
+          Addon(name: "extra Egg", price: 0.3)
+        ]),
 
     //2. chinees dishes
-      //Dim Sum
+    //Dim Sum
     Food(
         name: 'Dim Sum',
         description:
@@ -71,8 +95,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Chinese/Dim_Sum.png",
         price: 12,
         catagory: FoodCatagory.chinese_Cuisine,
-        availableAddons: [Addon(name: "Chili Sauce", price: 1),Addon(name: "Extra Dumplings", price: 5),Addon(name: "Jasmine Tea", price: 3)]),
-      //Fried Rice
+        availableAddons: [
+          Addon(name: "Chili Sauce", price: 1),
+          Addon(name: "Extra Dumplings", price: 5),
+          Addon(name: "Jasmine Tea", price: 3)
+        ]),
+    //Fried Rice
     Food(
         name: 'Fried Rice',
         description:
@@ -80,8 +108,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Chinese/Fried_Rice.jpg",
         price: 11,
         catagory: FoodCatagory.chinese_Cuisine,
-        availableAddons: [Addon(name: "Extra Prawns", price: 6),Addon(name: "Fried Egg", price: 2),Addon(name: "Sambal Sauce", price: 1)]),
-      //Wonton Noodles
+        availableAddons: [
+          Addon(name: "Extra Prawns", price: 6),
+          Addon(name: "Fried Egg", price: 2),
+          Addon(name: "Sambal Sauce", price: 1)
+        ]),
+    //Wonton Noodles
     Food(
         name: 'Wonton Noodles',
         description:
@@ -89,10 +121,13 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Chinese/Wonton_Noodles.jpg",
         price: 7,
         catagory: FoodCatagory.chinese_Cuisine,
-        availableAddons: [Addon(name: "Extra Wontons", price: 4),Addon(name: "Char Siu (BBQ Pork)", price: 5),Addon(name: "Braised Egg", price: 2)]),
+        availableAddons: [
+          Addon(name: "Extra Wontons", price: 4),
+          Addon(name: "Char Siu (BBQ Pork)", price: 5),
+          Addon(name: "Braised Egg", price: 2)
+        ]),
 
-
-  //3. japanese Food
+    //3. japanese Food
     //Sushi
     Food(
         name: 'Sushi',
@@ -101,7 +136,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Japanese/Sushi.jpg",
         price: 15,
         catagory: FoodCatagory.japanese_Cuisine,
-        availableAddons: [Addon(name: "Extra Wasabi", price: 1),Addon(name: "Additional Sushi Roll", price: 6),Addon(name: "Miso Soup", price: 4)]),  
+        availableAddons: [
+          Addon(name: "Extra Wasabi", price: 1),
+          Addon(name: "Additional Sushi Roll", price: 6),
+          Addon(name: "Miso Soup", price: 4)
+        ]),
     //Ramen
     Food(
         name: 'Ramen',
@@ -110,7 +149,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Japanese/Ramen_12.jpg",
         price: 18,
         catagory: FoodCatagory.japanese_Cuisine,
-        availableAddons: [Addon(name: "Extra Egg", price: 3),Addon(name: "Additional Noodles ", price: 5),Addon(name: "Spicy Chili Oi", price: 2)]),
+        availableAddons: [
+          Addon(name: "Extra Egg", price: 3),
+          Addon(name: "Additional Noodles ", price: 5),
+          Addon(name: "Spicy Chili Oi", price: 2)
+        ]),
     //Teriyaki
     Food(
         name: 'Teriyaki',
@@ -119,9 +162,13 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Japanese/chicken-teriyaki.jpg",
         price: 20,
         catagory: FoodCatagory.japanese_Cuisine,
-        availableAddons: [Addon(name: "Extra Teriyaki Sauce", price: 2),Addon(name: "Side of Pickled Vegetables", price: 3),Addon(name: "Miso Soup", price: 4)]),
+        availableAddons: [
+          Addon(name: "Extra Teriyaki Sauce", price: 2),
+          Addon(name: "Side of Pickled Vegetables", price: 3),
+          Addon(name: "Miso Soup", price: 4)
+        ]),
 
-  //4. indian dishes
+    //4. indian dishes
 
     //Biryani
     Food(
@@ -131,7 +178,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Indian/biryan.jpg",
         price: 15,
         catagory: FoodCatagory.indian_Cuisine,
-        availableAddons: [Addon(name: "Extra Raita", price: 3),Addon(name: "Additional Meat", price: 4),Addon(name: "Boiled Egg", price: 2)]),   
+        availableAddons: [
+          Addon(name: "Extra Raita", price: 3),
+          Addon(name: "Additional Meat", price: 4),
+          Addon(name: "Boiled Egg", price: 2)
+        ]),
     //Tandoori Chicken
     Food(
         name: 'Tandoori Chicken',
@@ -140,7 +191,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Indian/tandoor_chicken.jpg",
         price: 20,
         catagory: FoodCatagory.indian_Cuisine,
-        availableAddons: [Addon(name: "Extra Tandoori Sauce", price: 2),Addon(name: "Side of Naan", price: 4),Addon(name: "Sliced Onion Salad", price: 3)]),
+        availableAddons: [
+          Addon(name: "Extra Tandoori Sauce", price: 2),
+          Addon(name: "Side of Naan", price: 4),
+          Addon(name: "Sliced Onion Salad", price: 3)
+        ]),
     //Masala Dishes
     Food(
         name: 'Masala Dishes',
@@ -149,8 +204,12 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Indian/chicken_tikka_masala.jpg",
         price: 20,
         catagory: FoodCatagory.indian_Cuisine,
-        availableAddons: [Addon(name: "Extra Tandoori Sauce", price: 2),Addon(name: "Side of Naan", price: 4),Addon(name: "Sliced Onion Salad", price: 3)]),  
-    //Chapati 
+        availableAddons: [
+          Addon(name: "Extra Tandoori Sauce", price: 2),
+          Addon(name: "Side of Naan", price: 4),
+          Addon(name: "Sliced Onion Salad", price: 3)
+        ]),
+    //Chapati
     Food(
         name: 'Chapati',
         description:
@@ -158,20 +217,28 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Indian/maxresdefault.jpg",
         price: 5,
         catagory: FoodCatagory.indian_Cuisine,
-        availableAddons: [Addon(name: "Extra Chapati", price:5),Addon(name: "Side of Curry", price: 4),Addon(name: "Ghee Butter", price: 3)]),
+        availableAddons: [
+          Addon(name: "Extra Chapati", price: 5),
+          Addon(name: "Side of Curry", price: 4),
+          Addon(name: "Ghee Butter", price: 3)
+        ]),
 
-  //5. Western dishes
+    //5. Western dishes
 
-  //Burgers
+    //Burgers
     Food(
         name: 'Burgers',
         description:
             "A juicy beef or chicken patty served in a soft bun with lettuce, tomato, cheese, and your choice of sauce.",
         imagePath: "lib/images/Western/Burger.jpg",
-        price:15,
+        price: 15,
         catagory: FoodCatagory.western_Cuisine,
-        availableAddons: [Addon(name: "Extra Cheese", price: 2),Addon(name: "Bacon Strips", price: 3),Addon(name: "Fries ", price: 4)]),
-  //Pizza
+        availableAddons: [
+          Addon(name: "Extra Cheese", price: 2),
+          Addon(name: "Bacon Strips", price: 3),
+          Addon(name: "Fries ", price: 4)
+        ]),
+    //Pizza
     Food(
         name: 'Pizza',
         description:
@@ -179,10 +246,13 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Western/Pizza.jpg",
         price: 20,
         catagory: FoodCatagory.western_Cuisine,
-        availableAddons: [Addon(name: "Extra Toppings", price: 3),Addon(name: "Extra Cheese", price: 2),Addon(name: "Garlic Bread", price: 6)]),
+        availableAddons: [
+          Addon(name: "Extra Toppings", price: 3),
+          Addon(name: "Extra Cheese", price: 2),
+          Addon(name: "Garlic Bread", price: 6)
+        ]),
 
-
-  //6. Thia Dishes
+    //6. Thia Dishes
 
     //Tom Yum
     Food(
@@ -192,25 +262,37 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Thai/Tom_Yum_Soup.jpg",
         price: 16,
         catagory: FoodCatagory.thia_Cuisine,
-        availableAddons: [Addon(name: "Extra Shrimp", price: 5),Addon(name: "Extra Chili", price: 1),Addon(name: "Rice ", price: 3)]),  
+        availableAddons: [
+          Addon(name: "Extra Shrimp", price: 5),
+          Addon(name: "Extra Chili", price: 1),
+          Addon(name: "Rice ", price: 3)
+        ]),
     //Pad Thai
     Food(
         name: 'Pad Thai',
         description:
             "Stir-fried rice noodles with eggs, tofu, shrimp or chicken, bean sprouts, peanuts, and a tangy tamarind sauce.",
         imagePath: "lib/images/Thai/Pad_Thai.jpg",
-        price:20,
+        price: 20,
         catagory: FoodCatagory.thia_Cuisine,
-        availableAddons: [Addon(name: "Extra Tofu", price: 4),Addon(name: "Extra Shrimp", price: 5),Addon(name: "Lime", price: 1)]), 
+        availableAddons: [
+          Addon(name: "Extra Tofu", price: 4),
+          Addon(name: "Extra Shrimp", price: 5),
+          Addon(name: "Lime", price: 1)
+        ]),
     //Green Curry
     Food(
         name: 'Green Curry',
         description:
             "A rich, spicy curry made with green curry paste, coconut milk, chicken or beef, and vegetables like eggplant and bamboo shoots.",
         imagePath: "lib/images/Thai/Thai_green_curry-2.jpg",
-        price:21,
+        price: 21,
         catagory: FoodCatagory.thia_Cuisine,
-        availableAddons: [Addon(name: "Extra Chicken", price: 5 ),Addon(name: "Steamed Rice", price: 3),Addon(name: "Extra Coconut Milk", price: 2)]),    
+        availableAddons: [
+          Addon(name: "Extra Chicken", price: 5),
+          Addon(name: "Steamed Rice", price: 3),
+          Addon(name: "Extra Coconut Milk", price: 2)
+        ]),
     //Mango Sticky Rice
     Food(
         name: 'Mango Sticky Rice',
@@ -219,10 +301,14 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Thai/rice_with_mango.jpg",
         price: 12,
         catagory: FoodCatagory.thia_Cuisine,
-        availableAddons: [Addon(name: "Extra Mango ", price: 4),Addon(name: "Extra Coconut Milk ", price: 2),Addon(name: "Sesame Seeds", price: 1)]),
-  
-  //7. Snacks & Street Food
-    
+        availableAddons: [
+          Addon(name: "Extra Mango ", price: 4),
+          Addon(name: "Extra Coconut Milk ", price: 2),
+          Addon(name: "Sesame Seeds", price: 1)
+        ]),
+
+    //7. Snacks & Street Food
+
     //Pisang Goreng
     Food(
         name: 'Pisang Goreng',
@@ -231,7 +317,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Snacks_Street/PisangGoreng.jpg",
         price: 6,
         catagory: FoodCatagory.fast_Food,
-        availableAddons: [Addon(name: "Extra Banan", price: 2),Addon(name: "Honey Drizzle ", price: 1),Addon(name: "Ice Cream", price: 4)]),    
+        availableAddons: [
+          Addon(name: "Extra Banan", price: 2),
+          Addon(name: "Honey Drizzle ", price: 1),
+          Addon(name: "Ice Cream", price: 4)
+        ]),
     //Popiah
     Food(
         name: 'Popiah ',
@@ -240,7 +330,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Snacks_Street/Popiah.jpg",
         price: 7,
         catagory: FoodCatagory.fast_Food,
-        availableAddons: [Addon(name: "Extra Filling", price: 3),Addon(name: "Extra Sauce", price: 2),Addon(name: "Fried Spring Roll", price: 4)]),
+        availableAddons: [
+          Addon(name: "Extra Filling", price: 3),
+          Addon(name: "Extra Sauce", price: 2),
+          Addon(name: "Fried Spring Roll", price: 4)
+        ]),
     //Keropok Lekor
     Food(
         name: 'Keropok Lekor ',
@@ -249,7 +343,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Snacks_Street/Keropok_Lekor.png",
         price: 7,
         catagory: FoodCatagory.fast_Food,
-        availableAddons: [Addon(name: "Extra Sauce", price: 2),Addon(name: "Extra Keropok", price: 4),Addon(name: "Lime ", price: 1)]), 
+        availableAddons: [
+          Addon(name: "Extra Sauce", price: 2),
+          Addon(name: "Extra Keropok", price: 4),
+          Addon(name: "Lime ", price: 1)
+        ]),
     //Satay
     Food(
         name: 'Satay',
@@ -258,9 +356,13 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Snacks_Street/chicken_satay.jpg",
         price: 9,
         catagory: FoodCatagory.fast_Food,
-        availableAddons: [Addon(name: "Extra Skewers", price: 4),Addon(name: "Extra Peanut Sauce", price: 2),Addon(name: "Cucumber ", price: 1)]),
+        availableAddons: [
+          Addon(name: "Extra Skewers", price: 4),
+          Addon(name: "Extra Peanut Sauce", price: 2),
+          Addon(name: "Cucumber ", price: 1)
+        ]),
 
-  //8. Deserts
+    //8. Deserts
 
     //Ice Cream
     Food(
@@ -270,7 +372,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Desserts/ice_cream.jpg",
         price: 8,
         catagory: FoodCatagory.desserts,
-        availableAddons: [Addon(name: "Extra Toppings", price: 2),Addon(name: "Chocolate Sauce", price: 2),Addon(name: "Waffle Cone", price: 3)]),
+        availableAddons: [
+          Addon(name: "Extra Toppings", price: 2),
+          Addon(name: "Chocolate Sauce", price: 2),
+          Addon(name: "Waffle Cone", price: 3)
+        ]),
     //Cakes
     Food(
         name: 'Cake',
@@ -279,7 +385,11 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Desserts/cake.jpg",
         price: 12,
         catagory: FoodCatagory.desserts,
-        availableAddons: [Addon(name: "Extra Slice", price: 5),Addon(name: "Whipped Cream", price: 3),Addon(name: "Fruit Toppings", price:4)]),  
+        availableAddons: [
+          Addon(name: "Extra Slice", price: 5),
+          Addon(name: "Whipped Cream", price: 3),
+          Addon(name: "Fruit Toppings", price: 4)
+        ]),
     //Kuih-Muih (Traditional Snacks)
     Food(
         name: 'Kuih-Muih',
@@ -288,11 +398,90 @@ class Resturent extends ChangeNotifier{
         imagePath: "lib/images/Desserts/Kuih_Muih.jpg",
         price: 6,
         catagory: FoodCatagory.desserts,
-        availableAddons: [Addon(name: "Extra Kuih", price: 3),Addon(name: "Coconut Shavings", price: 2),Addon(name: "EPalm Sugar Drizzlegg", price: 2)]),
-
-
-
+        availableAddons: [
+          Addon(name: "Extra Kuih", price: 3),
+          Addon(name: "Coconut Shavings", price: 2),
+          Addon(name: "EPalm Sugar Drizzlegg", price: 2)
+        ]),
   ];
 
   List<Food> get fullmenu => _fullmenu;
+
+  final List<CartItem> _cart = [];
+  List<CartItem> get cart => _cart;
+
+
+  //OP
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      bool isSameFood = item.food == food;
+
+      bool isSameAddons =
+          ListEquality().equals(item.selectedAddons, selectedAddons);
+
+      return isSameFood && isSameAddons;
+    });
+    if (cartItem != null) {
+      cartItem.quantity++;
+    } else {
+      _cart.add(CartItem(food: food, selectedAddons: selectedAddons));
+    }
+    notifyListeners();
+  }
+
+
+
+  void removeFromCart(CartItem cartItem){
+    int cartIndex = _cart.indexOf(cartItem);
+
+    if (cartIndex!=-1) {
+      if (_cart[cartIndex].quantity>1) {
+        _cart[cartIndex].quantity --;
+        
+      }else{
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
+
+
+  double getTotalPrice(){
+    double total = 0.0;
+
+    for(CartItem cartItem in _cart){
+      double itemTotal = cartItem.food.price;
+      for (Addon addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+
+      total += itemTotal * cartItem.quantity;
+
+
+    }
+
+    return total;
+  }
+
+
+  //total item Count;
+  int getTotalItemCount(){
+    int totalItemCount = 0;
+    for(CartItem cartItem in _cart){
+      totalItemCount += cartItem.quantity;
+    }
+
+    return totalItemCount;
+  }
+
+
+  //clearing cart code
+
+
+  void clearCart(){
+    _cart.clear();
+    notifyListeners();
+  }
+
+
 }

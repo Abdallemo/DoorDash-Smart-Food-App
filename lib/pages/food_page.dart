@@ -1,6 +1,8 @@
+import 'package:dashdoor/Models/resturent.dart';
 import 'package:dashdoor/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dashdoor/Models/food.dart';
+import 'package:provider/provider.dart';
 
 class FoodPage extends StatefulWidget {
   final Food food;
@@ -16,6 +18,19 @@ class FoodPage extends StatefulWidget {
 }
 
 class _FoodPageState extends State<FoodPage> {
+
+  void addToCart(Food food, Map<Addon,bool>selectedAddons){
+
+    Navigator.pop(context);
+    List<Addon> currentlySelectedAddons=[];
+    for(Addon addon in widget.food.availableAddons){
+      if(widget.selectedAddons[addon]==true){
+        currentlySelectedAddons.add(addon);
+      }
+    }
+
+    context.read<Resturent>().addToCart(food, currentlySelectedAddons);
+  }
   @override
   Widget build(BuildContext context) {
     final double imageHeight = MediaQuery.of(context).size.height / 3;
@@ -96,7 +111,7 @@ class _FoodPageState extends State<FoodPage> {
                   ],
                 ),
               ),
-              MyButton(onTap: () {}, text: "Add to Cart"),
+              MyButton(onTap: () => addToCart(widget.food, widget.selectedAddons), text: "Add to Cart"),
               const SizedBox(
                 height: 25,
               )
