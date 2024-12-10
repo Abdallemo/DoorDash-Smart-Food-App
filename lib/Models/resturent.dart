@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:dashdoor/Models/cart_item.dart';
 import 'package:dashdoor/Models/food.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Resturent extends ChangeNotifier {
   final List<Food> _fullmenu = [
@@ -410,7 +411,6 @@ class Resturent extends ChangeNotifier {
   final List<CartItem> _cart = [];
   List<CartItem> get cart => _cart;
 
-
   //OP
   void addToCart(Food food, List<Addon> selectedAddons) {
     CartItem? cartItem = _cart.firstWhereOrNull((item) {
@@ -429,59 +429,91 @@ class Resturent extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
-  void removeFromCart(CartItem cartItem){
+  void removeFromCart(CartItem cartItem) {
     int cartIndex = _cart.indexOf(cartItem);
 
-    if (cartIndex!=-1) {
-      if (_cart[cartIndex].quantity>1) {
-        _cart[cartIndex].quantity --;
-        
-      }else{
+    if (cartIndex != -1) {
+      if (_cart[cartIndex].quantity > 1) {
+        _cart[cartIndex].quantity--;
+      } else {
         _cart.removeAt(cartIndex);
       }
     }
     notifyListeners();
   }
 
-
-  double getTotalPrice(){
+  double getTotalPrice() {
     double total = 0.0;
 
-    for(CartItem cartItem in _cart){
+    for (CartItem cartItem in _cart) {
       double itemTotal = cartItem.food.price;
       for (Addon addon in cartItem.selectedAddons) {
         itemTotal += addon.price;
       }
 
       total += itemTotal * cartItem.quantity;
-
-
     }
 
     return total;
   }
 
-
   //total item Count;
-  int getTotalItemCount(){
+  int getTotalItemCount() {
     int totalItemCount = 0;
-    for(CartItem cartItem in _cart){
+    for (CartItem cartItem in _cart) {
       totalItemCount += cartItem.quantity;
     }
 
     return totalItemCount;
   }
 
-
   //clearing cart code
 
-
-  void clearCart(){
+  void clearCart() {
     _cart.clear();
     notifyListeners();
   }
 
+//report Generator
 
+  String displayCartReceipt() {
+    final receipt = StringBuffer();
+    receipt.writeln("Here is Your receipt.");
+    receipt.writeln();
+
+    //fomtd dte
+
+    String formatedDate =
+        DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
+    receipt.writeln(formatedDate);
+    receipt.writeln("----------");
+    for (final cartItem in _cart) {
+      receipt.writeln(
+          "${cartItem.quantity} X ${cartItem.food.name} - ${_formatPrice(cartItem.food.price)}");
+      if (cartItem.selectedAddons.isNotEmpty) {
+        receipt
+            .writeln("   Add-ons: ${_formatAddons(cartItem.selectedAddons)}");
+      }
+      receipt.writeln();
+
+    }
+    receipt.writeln("----------");
+      receipt.writeln();
+    receipt.writeln("Total Items: ${getTotalItemCount()}");
+    receipt.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
+
+    return receipt.toString();
+
+    
+  }
+
+  String _formatPrice(double pirce) {
+    return "RM ${pirce.toStringAsFixed(2)}";
+  }
+
+  String _formatAddons(List<Addon> addons) {
+    return addons
+        .map((addon) => "${addon.name} (${_formatPrice(addon.price)})")
+        .join(", ");
+  }
 }

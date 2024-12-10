@@ -17,7 +17,7 @@ class MySliverAppBar extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context)=> const CartPage()));
       }, icon: const Icon(Icons.shopping_cart_outlined))],
       centerTitle: true,
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       title:const Text("Door Dash"),
       flexibleSpace: FlexibleSpaceBar(

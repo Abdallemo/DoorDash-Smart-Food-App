@@ -1,5 +1,4 @@
 import 'package:dashdoor/Models/food.dart';
-import 'package:flutter/material.dart';
 
 class CartItem {
   Food food;

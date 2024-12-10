@@ -33,7 +33,7 @@ enum FoodCatagory
 
 class Addon{
   String name;
-  num price;
+  double price;
 
   Addon({
     required this.name,
