@@ -72,6 +72,7 @@ flutter:
      - 'lib/images/Thai/'
      - 'lib/images/Snacks_Street/'
      - 'lib/images/Desserts/'
+     - 'lib/images/logo/'
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

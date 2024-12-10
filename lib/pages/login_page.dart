@@ -34,11 +34,7 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo will but here if found lol
-            Icon(
-              Icons.lock_open_rounded,
-              size: 100,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
+            Image.asset('lib/images/logo/Animation - 1733579760946.gif'),
             const SizedBox(
               height: 25,
             ),
